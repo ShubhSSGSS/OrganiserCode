@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block contentBlock %}
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        <div>
+            {{ form.planNameField.label }}
+            {{ form.planNameField() }}
+        </div>
+        <div>
+            {{ form.planDescField.label }}
+            {{ form.planDescField() }}
+        </div>
+        <div>
+            {{ form.planTimeField.label }}
+            {{ form.planTimeField() }}
+        </div>
+        <div>
+            {{ form.planLocField.label }}
+            {{ form.planLocField() }}
+        </div>
+        <div>
+            {{ form.submitButton.label }}
+            {{ form.submitButton() }}
+        </div>
+    </form>
+{% endblock contentBlock %}

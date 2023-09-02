@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contentBlock %}
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        <div>
+            {{ form.usernameField.label }}
+            {{ form.usernameField() }}
+        </div>
+        <div>
+            {{ form.pinField.label }}
+            {{ form.pinField() }}
+        </div>
+        <div>
+            {{ form.submitButton.label }}
+            {{ form.submitButton() }}
+        </div>
+    </form>
+{% endblock contentBlock %}

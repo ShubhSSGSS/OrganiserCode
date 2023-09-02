@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block contentBlock %}
+    {% if all %}
+        Welcome to Plans! You can view all your Plans on this page.
+        {% for plan in plans %}
+
+            <div class="plan">
+                <div class="left">
+                    <span id="name-host"><b>{{ plan.planName }}</b> by {{ plan.planCreatorID }}</span>
+                    <span id="time-venue">{{ plan.planTime }} at {{ plan.planLoc }} </span>
+                </div>
+                <div class="right">
+                    <button onclick="someevent">
+                        View Plan
+                    </button>
+                </div>
+            </div>
+
+        {% endfor %}
+    {% else %}
+
+            {% if inPlan %}
+            {% else %}
+                You were invited to join {{ plans.planName }} by {{ host }}
+                <button id="joinButton" data-planID={{ plans.planID }} data-userID = {{ userID }} onclick="joinPlan(this)">Join Plan :D</button>
+                <br> <label id="joinInfo"></label>
+            {% endif %}
+
+            <div class="plan">
+                <div class="left">
+                    <span id="name-host"><b>{{ plan.planName }}</b> by {{ host }} <br></span>
+                    <span id="time-venue">{{ plan.planTime }} at {{ plan.planLoc }} </span>
+                </div>
+                <div class="right">
+                    <button onclick="someevent">
+                        View Plan
+                    </button>
+                </div>
+            </div>
+
+    {% endif %}
+
+{% endblock contentBlock %}
+
+
+

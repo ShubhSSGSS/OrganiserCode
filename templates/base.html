@@ -1,0 +1,40 @@
+<html>
+
+    <head>
+        <title>
+            {% if title %}
+                Plans - {{ title }}
+            {% else %}
+                Plans
+            {% endif %}
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='base-styling.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='plan-styling.css') }}">
+        <script src="{{ url_for('static', filename='main.js') }}"></script>
+    </head>
+
+    <body>
+
+        <div class="main">
+
+            <nav id="header">
+                <div> <a href="{{ url_for('info') }}">Info</a> </div>
+                <div> <a href="{{ url_for('myplans', planid='all') }}">My Plans</a> </div>
+                <div> <a href="{{ url_for('newPlan') }}">Create Plan</a> </div>
+                <div> <a>Log Out </a></div>
+            </nav>
+
+            <div id="content">
+                {% block contentBlock %}
+                {% endblock contentBlock %}
+            </div>
+
+        </div>
+
+        <br>
+            <a href="{{ url_for('logout') }}">Logout!</a>
+        <br>   
+
+    </body>
+
+</html>
